@@ -13,3 +13,10 @@ export const baseQuerySchema = z.object({
   page: z.number().optional().default(1),
   pageSize: z.number().optional().default(10),
 });
+
+export interface IGetManyRes<T> {
+  items: T[];
+  itemCount: number;
+  page: number;
+  pageSize: number;
+}
