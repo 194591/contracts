@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const createTaskSchema = z.object({
   name: z.string(),
   description: z.string().optional(),
-  dueDate: z.string().optional(),
+  dueDate: z.string().datetime().optional(),
   attachments: z.array(z.string()).optional(),
 });
 export type CreateTaskSchema = z.infer<typeof createTaskSchema>;

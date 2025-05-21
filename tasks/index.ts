@@ -3,7 +3,7 @@ export * from './req';
 export * from './res';
 
 import { initContract } from '@ts-rest/core';
-import { ICreatedRes, IGetManyRes, IRes } from '../common';
+import { IGetManyRes, IRes } from '../common';
 import { taskQuerySchema } from './query';
 import { createTaskSchema, updateTaskSchema } from './req';
 import { ITask } from './res';
@@ -17,7 +17,7 @@ export const taskContract = c.router(
       path: '/',
       body: createTaskSchema,
       responses: {
-        200: c.type<ICreatedRes>(),
+        200: c.type<ITask>(),
       },
     },
     updateTask: {
@@ -25,7 +25,7 @@ export const taskContract = c.router(
       path: '/:id',
       body: updateTaskSchema,
       responses: {
-        200: c.type<IRes>(),
+        200: c.type<ITask>(),
       },
     },
     getTasks: {
@@ -41,6 +41,13 @@ export const taskContract = c.router(
       path: '/:id',
       responses: {
         200: c.type<ITask>(),
+      },
+    },
+    deleteTask: {
+      method: 'DELETE',
+      path: '/:id',
+      responses: {
+        200: c.type<IRes>(),
       },
     },
   },
