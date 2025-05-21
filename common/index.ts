@@ -1,4 +1,10 @@
-import { z } from 'zod';
+import { z } from "zod";
+
+type DataModelId = string | number;
+export interface DataModel {
+  id: DataModelId;
+  [key: PropertyKey]: unknown;
+}
 
 export interface IRes {
   message?: string;
@@ -14,7 +20,7 @@ export const baseQuerySchema = z.object({
   pageSize: z.coerce.number().optional().default(10),
 });
 
-export interface IGetManyRes<T> {
+export interface IGetManyRes<T extends DataModel> {
   items: T[];
   itemCount: number;
   page: number;
