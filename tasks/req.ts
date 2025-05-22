@@ -4,7 +4,7 @@ export const createTaskSchema = z.object({
   name: z.string(),
   description: z.string().optional(),
   dueDate: z.coerce.date().optional(),
-  attachments: z.array(z.string()).optional(),
+  attachments: z.array(z.instanceof(File)).optional(),
 });
 export type CreateTaskSchema = z.infer<typeof createTaskSchema>;
 
