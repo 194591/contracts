@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export interface IRes {
   message?: string;
@@ -8,10 +8,14 @@ export interface ICreatedRes extends IRes {
   id: string;
 }
 
+export interface IId {
+  id: string;
+}
+
 export const baseQuerySchema = z.object({
   s: z.string().optional(),
-  page: z.coerce.number().optional().default(1),
-  pageSize: z.coerce.number().optional().default(10),
+  page: z.coerce.number().optional(),
+  pageSize: z.coerce.number().optional(),
 });
 
 export interface IGetManyRes<T> {
