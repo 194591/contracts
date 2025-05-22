@@ -13,6 +13,15 @@ export const mediaContract = c.router(
         200: c.type<{ key: string }>(),
       },
     },
+    uploadBulk: {
+      method: 'POST',
+      path: '/bulk',
+      contentType: 'multipart/form-data',
+      body: c.type<{ files: File[] }>(),
+      responses: {
+        200: c.type<{ keys: string[] }>(),
+      },
+    },
   },
   {
     pathPrefix: '/media',

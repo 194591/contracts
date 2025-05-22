@@ -1,6 +1,4 @@
-import type { DataModel } from "../common";
-
-export interface ITask extends DataModel {
+export interface ITask {
   id: string;
   name: string;
   description?: string;
