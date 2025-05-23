@@ -14,5 +14,7 @@ export type ITaskOrderBy = (typeof _taskOrderBy)[number];
 export const taskQuerySchema = baseQuerySchema.extend({
   orderBy: z.enum(_taskOrderBy).optional(),
   order: z.enum(['asc', 'desc']).optional(),
+  name: z.string().optional(),
+  dueDate: z.coerce.date().optional(),
 });
 export type ITaskQuery = z.infer<typeof taskQuerySchema>;
