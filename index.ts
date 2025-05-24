@@ -1,6 +1,6 @@
 import { initContract } from '@ts-rest/core';
 import { mediaContract } from './media';
-import { messageContract } from './messages';
+import { channelContract } from './messages';
 import { taskContract } from './tasks';
 
 const c = initContract();
@@ -15,7 +15,7 @@ export const contract = c.router(
       },
     },
     media: mediaContract,
-    message: messageContract,
+    channel: channelContract,
     task: taskContract,
   },
   {

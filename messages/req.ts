@@ -12,3 +12,4 @@ export const createChannelSchema = z.object({
   name: z.string(),
   memberIds: z.array(z.string()).optional(),
 });
+export type CreateChannelSchema = z.infer<typeof createChannelSchema>;

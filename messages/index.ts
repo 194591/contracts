@@ -1,8 +1,16 @@
+export * from './query';
 export * from './req';
+export * from './res';
 
 import { initContract } from '@ts-rest/core';
-import { ICreatedRes } from '../common';
-import { createMessageSchema, updateMessageSchema } from './req';
+import { ICreatedRes, IGetManyRes } from '../common';
+import { messageQuerySchema } from './query';
+import {
+  createChannelSchema,
+  createMessageSchema,
+  updateMessageSchema,
+} from './req';
+import { IMessage } from './res';
 
 const c = initContract();
 
@@ -19,7 +27,7 @@ export const messageContract = c.router(
     },
     updateMessage: {
       method: 'PATCH',
-      path: '/:id',
+      path: '/:messageId',
       summary: 'Update a message',
       body: updateMessageSchema,
       responses: {
@@ -29,16 +37,31 @@ export const messageContract = c.router(
     getMessages: {
       method: 'GET',
       path: '/',
+      query: messageQuerySchema,
       responses: {
-        200: c.type<{
-          data: {
-            id: string;
-          }[];
-        }>(),
+        200: c.type<IGetManyRes<IMessage>>(),
       },
     },
   },
   {
     pathPrefix: '/messages',
+  },
+);
+
+export const channelContract = c.router(
+  {
+    createChannel: {
+      method: 'POST',
+      path: '/',
+      summary: 'Create a channel',
+      body: createChannelSchema,
+      responses: {
+        200: c.type<ICreatedRes>(),
+      },
+    },
+    message: messageContract,
+  },
+  {
+    pathPrefix: '/channels/:channelId',
   },
 );
