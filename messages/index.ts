@@ -4,15 +4,15 @@ export * from './req';
 export * from './res';
 
 import { initContract } from '@ts-rest/core';
-import { ICreatedRes, IGetManyRes } from '../common';
-import { messageQuerySchema, queryChannelSchema } from './query';
+import type { ICreatedRes, IGetManyRes } from '../common';
+import { queryMessageSchema, queryChannelSchema } from './query';
 import {
   createChannelSchema,
   createMessageSchema,
   updateChannelSchema,
   updateMessageSchema,
 } from './req';
-import { TChannel, TMessage } from './res';
+import type { TChannel, TMessage } from './res';
 
 const c = initContract();
 
@@ -39,7 +39,7 @@ export const messageContract = c.router(
     getMessages: {
       method: 'GET',
       path: '/',
-      query: messageQuerySchema,
+      query: queryMessageSchema,
       responses: {
         200: c.type<IGetManyRes<TMessage>>(),
       },

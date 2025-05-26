@@ -1,4 +1,4 @@
-import { TRecordWithTimestamp, TUser } from '../common';
+import type { TRecordWithTimestamp, TUser } from '../common';
 
 export type TChannel = TRecordWithTimestamp & {
   name: string;
