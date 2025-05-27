@@ -29,6 +29,11 @@ export type TUser = {
   image?: string;
 } & TRecordWithTimestamp;
 
+export type TOptions<T = string> = {
+  label: string;
+  value: T;
+};
+
 export const baseQuerySchema = z.object({
   s: z.string().optional(),
   page: z.coerce.number().optional(),
