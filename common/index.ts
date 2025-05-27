@@ -34,3 +34,4 @@ export const baseQuerySchema = z.object({
   page: z.coerce.number().optional(),
   pageSize: z.coerce.number().optional(),
 });
+export type TBaseQuery = z.infer<typeof baseQuerySchema>;
