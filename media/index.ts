@@ -8,7 +8,7 @@ export const mediaContract = c.router(
       method: 'POST',
       path: '/',
       contentType: 'multipart/form-data',
-      body: c.type<{ file: File }>(), // <- Use File type in here
+      body: c.type<{ file: File }>(),
       responses: {
         200: c.type<{ key: string }>(),
       },

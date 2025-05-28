@@ -79,6 +79,15 @@ export const channelContract = c.router(
       body: updateChannelSchema,
       responses: { 200: c.type<ICreatedRes>() },
     },
+    uploadAttachments: {
+      method: 'POST',
+      path: 'attachments',
+      contentType: 'multipart/form-data',
+      body: c.type<{ files: File[] }>(),
+      responses: {
+        200: c.type<{ keys: string[] }>(),
+      },
+    },
     message: messageContract,
   },
   {
