@@ -1,23 +1,23 @@
 import { z } from 'zod';
 
-export type IRes = {
+export type TResponse = {
   message?: string;
 };
 
-export type IId = {
+export type TIdentity = {
   id: string;
 };
 
-export type ICreatedRes = IRes & IId;
+export type ICreatedRes = TResponse & TIdentity;
 
-export type IGetManyRes<T> = {
+export type IGetManyRes<T extends TIdentity> = TResponse & {
   items: T[];
   itemCount: number;
   page: number;
   pageSize: number;
 };
 
-export type TRecordWithTimestamp = IId & {
+export type TTimestamp = TIdentity & {
   createdAt: Date;
   updatedAt: Date;
 };
@@ -27,7 +27,7 @@ export type TUser = {
   email: string;
   emailVerified: boolean;
   image?: string;
-} & TRecordWithTimestamp;
+} & TTimestamp;
 
 export type TOptions<T = string> = {
   label: string;

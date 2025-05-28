@@ -5,7 +5,7 @@ export * from './res';
 
 import { initContract } from '@ts-rest/core';
 
-import type { IGetManyRes, IRes } from '../common';
+import type { IGetManyRes, TResponse } from '../common';
 
 import { taskQuerySchema } from './query';
 import { createTaskSchema, updateTaskSchema } from './req';
@@ -51,7 +51,7 @@ export const taskContract = c.router(
       method: 'DELETE',
       path: '/:id',
       responses: {
-        200: c.type<IRes>(),
+        200: c.type<TResponse>(),
       },
     },
   },

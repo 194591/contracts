@@ -1,12 +1,12 @@
-import type { TRecordWithTimestamp, TUser } from '../common';
+import type { TTimestamp, TUser } from '../common';
 
-export type TChannel = TRecordWithTimestamp & {
+export type TChannel = TTimestamp & {
   name: string;
   // messages: TMessage[];
   lastMessage?: TMessage;
 };
 
-export type TMessage = TRecordWithTimestamp & {
+export type TMessage = TTimestamp & {
   content: string;
   sender: TUser;
 };
