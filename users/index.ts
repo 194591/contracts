@@ -1,7 +1,9 @@
 export * from './res';
 
 import { initContract } from '@ts-rest/core';
+
 import { IGetManyRes } from '../common';
+
 import { querySimpleUserSchema } from './query';
 import { TSimpleUser } from './res';
 

@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 import { baseQuerySchema } from '../common';
 
 export const queryChannelSchema = baseQuerySchema.extend({});

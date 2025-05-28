@@ -4,7 +4,9 @@ export * from './req';
 export * from './res';
 
 import { initContract } from '@ts-rest/core';
+
 import type { IGetManyRes, IRes } from '../common';
+
 import { taskQuerySchema } from './query';
 import { createTaskSchema, updateTaskSchema } from './req';
 import type { ITask } from './res';

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import { z } from 'zod';
+
 import { baseQuerySchema } from '../common';
 
 export const querySimpleUserSchema = baseQuerySchema.extend({
