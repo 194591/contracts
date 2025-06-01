@@ -26,7 +26,7 @@ export type TUser = {
   name: string;
   email: string;
   emailVerified: boolean;
-  image?: string;
+  image?: string | null;
 } & TTimestamp;
 
 export type TOptions<T = string> = {

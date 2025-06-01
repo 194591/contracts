@@ -79,6 +79,12 @@ export const channelContract = c.router(
       body: updateChannelSchema,
       responses: { 200: c.type<ICreatedRes>() },
     },
+    deleteChannel: {
+      method: 'DELETE',
+      path: '/:channelId',
+      summary: 'Delete a channel',
+      responses: { 200: c.type<ICreatedRes>() },
+    },
     uploadAttachments: {
       method: 'POST',
       path: 'attachments',
