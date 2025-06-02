@@ -2,10 +2,10 @@ export * from './res';
 
 import { initContract } from '@ts-rest/core';
 
-import { IGetManyRes } from '../common';
+import { getManyResSchema } from '../common';
 
 import { querySimpleUserSchema } from './query';
-import { TSimpleUser } from './res';
+import { simpleUserSchema } from './res';
 
 const c = initContract();
 
@@ -16,7 +16,7 @@ export const userContract = c.router(
       path: '/simple',
       query: querySimpleUserSchema,
       responses: {
-        200: c.type<IGetManyRes<TSimpleUser>>(),
+        200: getManyResSchema(simpleUserSchema),
       },
     },
   },

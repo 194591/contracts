@@ -5,7 +5,7 @@ export * from './res';
 
 import { initContract } from '@ts-rest/core';
 
-import type { IGetManyRes, TResponse } from '../common';
+import type { TGetManyRes, TResponse } from '../common';
 
 import { taskQuerySchema } from './query';
 import { createTaskSchema, updateTaskSchema } from './req';
@@ -37,7 +37,7 @@ export const taskContract = c.router(
       path: '/',
       query: taskQuerySchema,
       responses: {
-        200: c.type<IGetManyRes<ITask>>(),
+        200: c.type<TGetManyRes<ITask>>(),
       },
     },
     getTask: {

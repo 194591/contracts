@@ -5,7 +5,7 @@ export * from './res';
 
 import { initContract } from '@ts-rest/core';
 
-import type { ICreatedRes, IGetManyRes } from '../common';
+import type { TCreatedRes, TGetManyRes } from '../common';
 
 import { queryMessageSchema, queryChannelSchema } from './query';
 import {
@@ -26,7 +26,7 @@ export const messageContract = c.router(
       summary: 'Create a message',
       body: createMessageSchema,
       responses: {
-        200: c.type<ICreatedRes>(),
+        200: c.type<TCreatedRes>(),
       },
     },
     updateMessage: {
@@ -35,7 +35,7 @@ export const messageContract = c.router(
       summary: 'Update a message',
       body: updateMessageSchema,
       responses: {
-        200: c.type<ICreatedRes>(),
+        200: c.type<TCreatedRes>(),
       },
     },
     getMessages: {
@@ -43,7 +43,7 @@ export const messageContract = c.router(
       path: '/',
       query: queryMessageSchema,
       responses: {
-        200: c.type<IGetManyRes<TMessage>>(),
+        200: c.type<TGetManyRes<TMessage>>(),
       },
     },
   },
@@ -58,7 +58,7 @@ export const channelContract = c.router(
       method: 'GET',
       path: '/',
       query: queryChannelSchema,
-      responses: { 200: c.type<IGetManyRes<TChannel>>() },
+      responses: { 200: c.type<TGetManyRes<TChannel>>() },
     },
     getChannel: {
       method: 'GET',
@@ -70,20 +70,20 @@ export const channelContract = c.router(
       path: '/',
       summary: 'Create a channel',
       body: createChannelSchema,
-      responses: { 200: c.type<ICreatedRes>() },
+      responses: { 200: c.type<TCreatedRes>() },
     },
     updateChannel: {
       method: 'PATCH',
       path: '/:channelId',
       summary: 'Update a channel',
       body: updateChannelSchema,
-      responses: { 200: c.type<ICreatedRes>() },
+      responses: { 200: c.type<TCreatedRes>() },
     },
     deleteChannel: {
       method: 'DELETE',
       path: '/:channelId',
       summary: 'Delete a channel',
-      responses: { 200: c.type<ICreatedRes>() },
+      responses: { 200: c.type<TCreatedRes>() },
     },
     uploadAttachments: {
       method: 'POST',
