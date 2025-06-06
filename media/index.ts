@@ -6,7 +6,7 @@ import { initContract } from '@ts-rest/core';
 import { baseQuerySchema, getManyResSchema, identitySchema } from '../common';
 
 import { createFolderSchema, updateFolderSchema } from './req';
-import { mediaFileSchema, mediaFolderSchema } from './res';
+import { mediaFileSchema, mediaFolderSchema, TMediaFolderDetail } from './res';
 
 const c = initContract();
 
@@ -50,7 +50,7 @@ export const mediaContract = c.router(
       method: 'GET',
       path: '/folder/:folderId',
       responses: {
-        200: mediaFolderSchema,
+        200: c.type<TMediaFolderDetail>(),
       },
     },
     getFolderSubfolders: {

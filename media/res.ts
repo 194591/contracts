@@ -18,3 +18,6 @@ export const mediaFolderSchema = timestampSchema.extend({
   parentId: z.string().optional(),
 });
 export type TMediaFolder = z.infer<typeof mediaFolderSchema>;
+export type TMediaFolderDetail = TMediaFolder & {
+  ancestors: { id: string; name: string }[];
+};
