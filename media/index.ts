@@ -5,7 +5,11 @@ import { initContract } from '@ts-rest/core';
 
 import { baseQuerySchema, getManyResSchema, identitySchema } from '../common';
 
-import { createFolderSchema, updateFolderSchema } from './req';
+import {
+  createFolderSchema,
+  updateFolderSchema,
+  updateFileSchema,
+} from './req';
 import { mediaFileSchema, mediaFolderSchema, TMediaFolderDetail } from './res';
 
 const c = initContract();
@@ -42,6 +46,14 @@ export const mediaContract = c.router(
       method: 'PATCH',
       path: '/folder/:folderId',
       body: updateFolderSchema,
+      responses: {
+        200: identitySchema,
+      },
+    },
+    updateFile: {
+      method: 'PATCH',
+      path: '/file/:fileKey',
+      body: updateFileSchema,
       responses: {
         200: identitySchema,
       },
